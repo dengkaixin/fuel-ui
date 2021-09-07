@@ -1,0 +1,35 @@
+@import 'jreap-core/src/assets/css/_mixins';
+@import 'jreap-core/src/assets/css/_virable';
+
+.fs-underline {
+  padding: 0 8px;
+  border-bottom: 1px solid #eeeeee;
+
+  @include themify($themes) {
+    border-bottom: 1px solid themed('input-border-color');
+  }
+}
+
+.fs-underline-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ant-form-item-control {
+  .fs-underline {
+    height: 30px;
+  }
+}
+
+// .fs-underline:after {
+//   content: "";
+//   display: block;
+//   width: 100%;
+//   height: 1px;
+//   background: #eeeeee;
+
+//   @include themify($themes) {
+//     background: themed('input-border-color');
+//   }
+// }

@@ -1,0 +1,31 @@
+#components-table-resizable-column .react-resizable {
+  position: relative ;
+  background-clip: padding-box;
+}
+#components-table-resizable-column .react-resizable-handle {
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  bottom: 0;
+  right: 0px;
+  cursor: col-resize;
+  z-index: 1;
+}
+
+.ant-table-thead > tr > th {
+  text-align: center;
+}
+.ant-table-tbody > tr > td {
+  text-align: left;
+}
+.ant-table-thead > tr > th, .ant-table-tbody > tr > td {
+  min-width: 50px;
+}
+
+// .ant-table-header,
+.ant-table-body {
+   overflow-x: auto !important;    
+}
+.ant-table-hide-scrollbar {
+  background-color: #fff !important;
+}

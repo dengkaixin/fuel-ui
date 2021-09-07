@@ -1,0 +1,89 @@
+@import 'jreap-core/src/assets/css/_mixins';
+
+.ant-upload button.upload-btn {
+  @include themify($themes) {
+    border-color: themed('border-color');
+    color: themed('theme-color');
+  }
+
+  &.disabled {
+    color: #B5B5B5 !important;
+    pointer-events: none;
+    border-color: #B5B5B5 !important;
+    .icon {
+      color: #B5B5B5;
+    }
+  }
+}
+
+.fileListWrapper {
+  margin-top: 5px;
+
+  .file-item {
+    height: 50px;
+    background: #F5F9FF;
+    border-radius: 4px;
+    padding: 7px 11px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    &.error {
+      .file-name,
+      .iconfujian,
+      .file-size,
+      .k-i-delete {
+        color: #f5222d !important;
+      }
+    }
+
+    .file {
+      flex: 1;
+      overflow: hidden;
+
+      .file-name {
+        height: 25px;
+        line-height: 26px;
+        font-size: 14px;
+        color: #3EA44E;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        .iconfujian {
+          margin: 0 5px 0 0;
+        }
+      }
+
+      .iconfujian {
+        color: #666666;
+      }
+
+      .file-size {
+        height: 25px;
+        line-height: 25px;
+        font-size: 12px;
+        color: #999999;
+        margin-left: 21px;
+      }
+    }
+
+    .action {
+      text-align: right;
+      display: flex;
+      align-items: center;
+
+      span, i {
+        @include themify($themes) {
+          color: themed('theme-color');
+        }
+        cursor: pointer;
+        margin-left: 5px;
+      }
+    }
+
+    &:hover {
+      background: #EEF3FF;
+    }
+  }
+}
