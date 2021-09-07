@@ -3,21 +3,21 @@
  * @Descripttion: dengkaixin的代码
  * @Date: 2021-07-23 15:46:56
  * @LastEditors: dengkaixin
- * @LastEditTime: 2021-07-23 16:43:29
+ * @LastEditTime: 2021-09-07 16:00:24
  */
 import { useEffect, useState } from 'react';
-import JReap from 'jreap-core';
+import axios from 'axios';
 const formHeaders = { 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8' };
 
 // 获取数据字典数据
 const getDictSource = async (code) => {
   if (!code) return;
 
-  const data = JReap.getSessionAttr(code)
+  const data = sessionStorage[code] && JSON.parse(sessionStorage[code]);
   if (data) {
     return data;
   } else {
-    const res:any = await JReap.getDataService(`/base/web/code/getCodeTree.form`, {mark: code}, "POST", formHeaders);
+    const res: any = await axios.post('/base/web/code/getCodeTree.form', { mark: code }, { headers: formHeaders,})
     const dictData = res?.data?.rows?.map(item => {
       return {
         title: item.name,
@@ -25,7 +25,7 @@ const getDictSource = async (code) => {
         value: item.value,
       }
     });
-    JReap.setSessionAttr(code, dictData);
+    sessionStorage[code] = JSON.stringify(dictData);
     return dictData;
   }
 };

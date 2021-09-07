@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import JReap from 'jreap-core';
 import { Button, Icon, message, Popconfirm, Progress, Tooltip, Upload } from "antd";
+import axios from 'axios';
 import './index.scss'
 const acceptType = '.xls,.xlsx,.doc,.docx,.ppt,.pptx,.jpg,.png,.rar,.tar,.txt,.pdf';
 let deleteFileIds: string[] = [];
@@ -78,9 +78,11 @@ const FileUpload: React.FC<FileUploadProps> = (props: FileUploadProps) => {
         if (!bizId) {
             setFileList([]);
         } else {
-            JReap.getDataService('/jreap/web/fileupload/list.form', { ...param, bizType, bizId }, "GET", {
-                'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            }).then((res: any) => {
+            axios.get('/jreap/web/fileupload/list.form', { 
+                params: {...param, bizType, bizId },
+                headers: {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+            })
+            .then((res: any) => {
                 const data = res?.data?.rows ?? [];
                 data.forEach((item: any) => {
                     item.uid = item.id;
@@ -93,9 +95,10 @@ const FileUpload: React.FC<FileUploadProps> = (props: FileUploadProps) => {
     }, [update, bizId]);
 
     useEffect(() => {
-        JReap.getDataService('/base/web/code/getCodeTree.form', { mark: 'dzurlcode_' }, "POST", {
-            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        }).then((res: any) => {
+        axios.post('/base/web/code/getCodeTree.form', { mark: 'dzurlcode_' } , { 
+            headers: {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+        })
+        .then((res: any) => {
             const rows = (res.data || {}).rows || [];
             setuUrl({
                 idvUrl: rows[0] && rows[0].value,
@@ -168,14 +171,14 @@ const FileUpload: React.FC<FileUploadProps> = (props: FileUploadProps) => {
             const uid = file.id ?? file.response?.id;
             // window.open('/jreap/web/fileupload/viewFile.form?attrId=' + uid);
             // window.open(`/view/url?url=` + encodeURIComponent(`http://192.168.20.199/jreap/web/fileupload/downloadData.form?attrId=${uid}`))
-            window.open(`${url.idvUrl}/view/url?url=` + encodeURIComponent(`${url.downloadUrl}/fuel-mc/web/fileupload/downloadData.form?attrId=${uid}`))            
+            window.open(`${url.idvUrl}/view/url?url=` + encodeURIComponent(`${url.downloadUrl}/fuel-mc/web/fileupload/downloadData.form?attrId=${uid}`))
         },
         onRemove: (file) => {
             const newFileList = fileList.slice().filter(i => i.uid !== file.uid);
             setFileList(newFileList);
             if (file?.response?.id) {
-                JReap.getDataService('/jreap/web/fileupload/deleteData.form', { fileid: file.response.id }, "POST", {
-                    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                axios.post('/jreap/web/fileupload/deleteData.form', { fileid: file.response.id } , { 
+                    headers: {'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'}
                 })
             } else {
                 deleteFileIds.push(file.uid);

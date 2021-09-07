@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+<!--
+ * @Author: dengkaixin
+ * @Descripttion: dengkaixin的代码
+ * @Date: 2021-09-07 10:26:01
+ * @LastEditors: dengkaixin
+ * @LastEditTime: 2021-09-07 15:18:05
+-->
+# 欢迎使用 fuel-ui-core
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+fuel 研发组件库
 
-## Available Scripts
+## 使用方法
 
-In the project directory, you can run:
+### 安装
 
-### `yarn start`
+切换请求源后进行安装
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+# npm
+npm config set registry http://192.168.21.100:8888
+npm install fuel-ui-core -S
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#yarn
+yarn config set registry http://192.168.21.100:8888
+yarn add fuel-ui-core
+```
 
-### `yarn test`
+### 引入到项目中
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```js
+import { Flex } from 'fuel-ui-core';
+```
 
-### `yarn build`
+### 帮助中心
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- 参阅[fuel-ui-core 帮助中心](http://192.168.20.164/help) -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 版本信息
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1.0.0
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+初始化
