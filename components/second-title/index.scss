@@ -1,0 +1,41 @@
+@import 'jreap-core/src/assets/css/_mixins';
+
+.secondary-title{
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 4px;
+  &.bottom-line{
+    border-bottom: 1px solid #EAEAEA;
+  }
+  .circle-style {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    @include themify($themes) {
+      background: themed('theme-color');
+    }
+    border-radius: 50%;
+    margin-left: 1px;
+    &:nth-child(2) {
+      margin: 0 5px 0 -3px;
+      opacity: 0.5;
+    }
+  }
+  .title-name {
+    font-size: 14px;
+    font-family: 'PingFangSC-Regular PingFang SC';
+    font-weight: 400;
+    margin-right: 10px;
+    @include themify($themes) {
+      color: themed('theme-color');
+    }
+    line-height: 15px;
+  }
+  .icon {
+    margin-right: 10px;
+  }
+}
+
+.bottom-line{
+  border-bottom: 2px solid #f0f4fa;
+}
