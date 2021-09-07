@@ -1,3 +1,10 @@
+/*
+ * @Author: dengkaixin
+ * @Descripttion: dengkaixin的代码
+ * @Date: 2021-09-07 10:36:13
+ * @LastEditors: dengkaixin
+ * @LastEditTime: 2021-09-07 11:05:00
+ */
 // /*
 //  * @Author: dengkaixin
 //  * @Descripttion: dengkaixin的代码
@@ -8,7 +15,7 @@
 // import * as React from 'react';
 // import { Form, DatePicker, Tooltip } from 'antd'; 
 
-// import PageHeader, { SearchOption } from './index';
+// import PageHeader, { SearchOption } from '.';
 
 // const Demo: React.FC<any> = (props: any) => {
 

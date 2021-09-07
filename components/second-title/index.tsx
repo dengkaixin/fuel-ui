@@ -3,9 +3,9 @@
  * @Descripttion: dengkaixin的代码
  * @Date: 2021-07-21 17:09:07
  * @LastEditors: dengkaixin
- * @LastEditTime: 2021-09-07 10:30:54
+ * @LastEditTime: 2021-09-07 11:08:28
  */
-import React, {CSSProperties, ReactNode}from 'react'
+import React, { CSSProperties, ReactNode } from 'react'
 import './index.scss'
 
 interface SecondTitleProps {

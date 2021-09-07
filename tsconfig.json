@@ -1,26 +1,34 @@
+/*
+ * @Author: dengkaixin
+ * @Descripttion: dengkaixin的代码
+ * @Date: 2021-09-07 10:26:08
+ * @LastEditors: dengkaixin
+ * @LastEditTime: 2021-09-07 13:56:19
+ */
 {
   "compilerOptions": {
+    "jsx": "react",
+    "lib": ["es6", "dom", "es2015", "esnext"],
+    "module": "commonjs",
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "experimentalDecorators": true,
+    "sourceMap": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "noImplicitReturns": true,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    // "allowJs": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "resolveJsonModule": true, //可导入json数据
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"]
+    }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["./src", "./src/images.d.ts"],
+  "exclude": ["node_modules", "build"]
 }
